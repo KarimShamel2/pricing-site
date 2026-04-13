@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Pricing Template</title>
+  <style>
+    :root {
+      --bg: #f5f2ed;
+      --card: #ffffff;
+      --text: #1f1f1f;
+      --muted: #666;
+      --accent: #2f5d50;
+      --border: #ded8cf;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 500;
+    }
+
+    .header p {
+      margin: 0 auto;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .brand-box {
+      display: inline-block;
+      padding: 8px 18px;
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.6);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .featured {
+      border: 2px solid var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    .price {
+      font-size: 2rem;
+      margin: 10px 0 8px;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee8df;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .extras, .footer-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .extras {
+      margin-bottom: 22px;
+    }
+
+    .extras h3,
+    .footer-box h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .extra-item {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fcfbf8;
+    }
+
+    .extra-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .contact {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .replace-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 32px 16px 48px; }
+      .card, .extras, .footer-box { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand-box">Karim Shamel</div>
+      <h1>Website Packages</h1>
+      <p>
+        Professional website design for stores and businesses. Choose the package that fits your needs,
+        then add optional services as required.
+      </p>
+    </header>
+
+    <section class="pricing-grid">
+      <div class="card">
+        <h2>Basic Website</h2>
+        <div class="price">EGP 4000</div>
+        <div class="small-note">Best for small stores that need a clean online presence.</div>
+        <ul>
+          <li>Up to 10 pages</li>
+          <li>Mobile responsive design</li>
+          <li>Home, About, Products, Contact</li>
+          <li>WhatsApp contact button</li>
+          <li>Basic gallery or product section</li>
+          <li>Basic SEO setup</li>
+          <li>Delivery time: 7 days</li>
+        </ul>
+      </div>
+
+      <div class="card featured">
+        <h2>Advanced Website</h2>
+        <div class="price">EGP 7500</div>
+        <div class="small-note">Best for businesses that want a stronger and more complete website.</div>
+        <ul>
+          <li>Up to 25 pages</li>
+          <li>Premium custom design</li>
+          <li>Mobile responsive design</li>
+          <li>Product catalog / collection layout</li>
+          <li>WhatsApp integration</li>
+          <li>Contact form</li>
+          <li>Google Maps integration</li>
+          <li>Basic speed and SEO optimization</li>
+          <li>Delivery time: 12 days</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Monthly Maintenance</h2>
+        <div class="price">EGP 500 / month</div>
+        <div class="small-note">For updates, edits, and support after launch.</div>
+        <ul>
+          <li>Text and image updates</li>
+          <li>Product additions and small edits</li>
+          <li>Technical support</li>
+          <li>Minor design adjustments</li>
+          <li>Monthly backup/checkup</li>
+          <li>Response within 2 business days</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="extras">
+      <h3>Optional Services & Extra Costs</h3>
+      <div class="extras-grid">
+        <div class="extra-item">
+          <strong>Domain Name</strong>
+          EGP 1000-2500 / year
+        </div>
+        <div class="extra-item">
+          <strong>Hosting</strong>
+          EGP 300-500 / month
+        </div>
+        <div class="extra-item">
+          <strong>Extra Page</strong>
+          EGP [Extra Page Price] per page
+        </div>
+      </div>
+      <p class="replace-note">
+        Note: The package includes only the agreed number of products/pages. Any extra products added after that are charged separately.
+      </p>
+    </section>
+
+    <section class="footer-box">
+      <h3>Get Started</h3>
+      <p>
+        To begin, send your logo, store name, product photos, prices, and contact information.
+        A deposit of 40% is required before starting the project.
+      </p>
+      <p class="contact">
+        Phone: +20 0150 8222 682 <br />
+        WhatsApp: +20 0150 8222 682  <br />
+        Email: Karimshamel88@gmail.com
+      </p>
+      <a href="#" class="cta">Contact Me</a>
+    </section>
+  </div>
+</body>
+</html>
