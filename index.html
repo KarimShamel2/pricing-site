@@ -6,40 +6,35 @@
 <title>Website Packages</title>
 
 <style>
-
 :root {
   --card: #ffffff;
   --text: #1f1f1f;
   --muted: #666;
   --accent: #2f5d50;
   --border: #ded8cf;
+  --soft: #fcfbf8;
 }
 
 /* BACKGROUND IMAGE */
-
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-
   background-image: url("background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
   color: var(--text);
   line-height: 1.5;
 }
 
 /* OVERLAY FOR READABILITY */
-
 .overlay {
   background: rgba(245, 242, 237, 0.92);
   min-height: 100vh;
 }
 
 /* MAIN LAYOUT */
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -72,8 +67,44 @@ body {
   color: var(--muted);
 }
 
-/* CARDS */
+/* SHARED SECTIONS */
+.section-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
 
+.section-box h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.8rem;
+}
+
+.section-intro {
+  color: var(--muted);
+  margin-top: -4px;
+  margin-bottom: 18px;
+}
+
+/* INCLUDED GRID */
+.include-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.include-item {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 1rem;
+}
+
+/* CARDS */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -82,6 +113,7 @@ body {
 }
 
 .card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 22px;
@@ -92,6 +124,17 @@ body {
 .featured {
   border: 2px solid var(--accent);
   transform: translateY(-6px);
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--accent);
+  color: white;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 999px;
 }
 
 .card h2 {
@@ -112,6 +155,7 @@ body {
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
@@ -119,16 +163,36 @@ li {
   border-bottom: 1px solid #eee;
 }
 
-/* EXTRAS */
-
-.extras, .footer-box {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 28px;
-  margin-bottom: 20px;
+/* TABLE */
+.table-wrap {
+  overflow-x: auto;
 }
 
+.feature-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.feature-table th,
+.feature-table td {
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  text-align: left;
+  background: white;
+}
+
+.feature-table th {
+  background: #f6f2ec;
+  font-size: 1rem;
+}
+
+.feature-table td:first-child {
+  font-weight: bold;
+  background: #fcfbf8;
+}
+
+/* EXTRAS */
 .extras-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -139,7 +203,7 @@ li {
   padding: 18px;
   border: 1px solid var(--border);
   border-radius: 14px;
-  background: #fcfbf8;
+  background: var(--soft);
 }
 
 .extra-item strong {
@@ -147,8 +211,54 @@ li {
   margin-bottom: 6px;
 }
 
-/* CTA */
+/* PROCESS */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
 
+.process-step {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.step-number {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid #e8e2d9;
+  padding: 16px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h4 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* CTA */
 .cta {
   display: inline-block;
   margin-top: 18px;
@@ -157,156 +267,319 @@ li {
   background: var(--accent);
   color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 
-</style>
+.cta:hover {
+  opacity: 0.92;
+}
 
+/* CONTACT */
+.contact-lines p {
+  margin: 8px 0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .featured {
+    transform: none;
+  }
+
+  .section-box,
+  .card {
+    padding: 22px;
+  }
+
+  .header {
+    margin-bottom: 28px;
+  }
+}
+</style>
 </head>
 
 <body>
-
 <div class="overlay">
+  <div class="container">
 
-<div class="container">
+    <header class="header">
+      <div class="brand-box">Karim Shamel</div>
+      <h1>Website Packages</h1>
+      <p>
+        Professional website design for stores and businesses.
+        Choose the package that fits your needs and presents your brand clearly online.
+      </p>
+    </header>
 
-<header class="header">
+    <!-- ALL PACKAGES INCLUDE -->
+    <section class="section-box">
+      <h3>All Packages Include</h3>
+      <p class="section-intro">
+        Every package is designed to give your business a professional and reliable online presence.
+      </p>
 
-<div class="brand-box">Karim Shamel</div>
+      <div class="include-grid">
+        <div class="include-item">Mobile Responsive Design</div>
+        <div class="include-item">WhatsApp Contact Button</div>
+        <div class="include-item">Professional Layout</div>
+        <div class="include-item">Basic SEO Setup</div>
+        <div class="include-item">Fast Loading Structure</div>
+        <div class="include-item">Delivery Based on Package</div>
+        <div class="include-item">Revision Rounds Included</div>
+        <div class="include-item">Support After Delivery</div>
+      </div>
+    </section>
 
-<h1>Website Packages</h1>
+    <!-- PACKAGES -->
+    <section class="pricing-grid">
 
-<p>
-Professional website design for stores and businesses.
-Choose the package that fits your needs.
-</p>
+      <div class="card">
+        <h2>Starter Website</h2>
+        <div class="price">EGP 30,000</div>
+        <div class="small-note">Best for small businesses, shops, and startups.</div>
 
-</header>
+        <ul>
+          <li>Up to 10 pages</li>
+          <li>Mobile responsive design</li>
+          <li>WhatsApp contact button</li>
+          <li>Basic SEO setup</li>
+          <li>2 revision rounds</li>
+          <li>Support: 7 days</li>
+          <li>Delivery: 7–10 days</li>
+        </ul>
+      </div>
 
-<!-- PACKAGES -->
+      <div class="card featured">
+        <div class="badge">Most Popular</div>
+        <h2>Business Website</h2>
+        <div class="price">EGP 55,000</div>
+        <div class="small-note">Ideal for growing stores and businesses that need stronger presentation.</div>
 
-<section class="pricing-grid">
+        <ul>
+          <li>Up to 25 pages</li>
+          <li>Custom design</li>
+          <li>Product catalog</li>
+          <li>Maps integration</li>
+          <li>3 revision rounds</li>
+          <li>Support: 14 days</li>
+          <li>Delivery: 14–18 days</li>
+        </ul>
+      </div>
 
-<div class="card">
-<h2>Starter Website</h2>
+      <div class="card">
+        <h2>Premium Website</h2>
+        <div class="price">EGP 80,000</div>
+        <div class="small-note">Best for large businesses, brands, and showrooms.</div>
 
-<div class="price">EGP 30,000</div>
+        <ul>
+          <li>Up to 40 pages</li>
+          <li>High-end custom design</li>
+          <li>Advanced structure</li>
+          <li>SEO-ready setup</li>
+          <li>4 revision rounds</li>
+          <li>Support: 30 days</li>
+          <li>Delivery: 21–30 days</li>
+        </ul>
+      </div>
 
-<div class="small-note">
-Best for small businesses.
+    </section>
+
+    <!-- FEATURE COMPARISON -->
+    <section class="section-box">
+      <h3>Feature Comparison</h3>
+      <p class="section-intro">
+        A quick comparison to help you choose the package that fits your business needs.
+      </p>
+
+      <div class="table-wrap">
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Starter</th>
+              <th>Business</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pages Included</td>
+              <td>Up to 10</td>
+              <td>Up to 25</td>
+              <td>Up to 40</td>
+            </tr>
+            <tr>
+              <td>Mobile Responsive</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>WhatsApp Contact Button</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Custom Design</td>
+              <td>—</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Product Catalog</td>
+              <td>—</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Maps Integration</td>
+              <td>—</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>SEO Setup</td>
+              <td>Basic</td>
+              <td>Standard</td>
+              <td>Advanced</td>
+            </tr>
+            <tr>
+              <td>Revision Rounds</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>Support Duration</td>
+              <td>7 Days</td>
+              <td>14 Days</td>
+              <td>30 Days</td>
+            </tr>
+            <tr>
+              <td>Delivery Time</td>
+              <td>7–10 Days</td>
+              <td>14–18 Days</td>
+              <td>21–30 Days</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- EXTRAS -->
+    <section class="section-box">
+      <h3>Optional Services</h3>
+
+      <div class="extras-grid">
+        <div class="extra-item">
+          <strong>Domain Name</strong>
+          EGP 1000–2500 / year
+        </div>
+
+        <div class="extra-item">
+          <strong>Hosting</strong>
+          EGP 300–500 / month
+        </div>
+
+        <div class="extra-item">
+          <strong>Extra Page</strong>
+          EGP 500 per page
+        </div>
+
+        <div class="extra-item">
+          <strong>Admin Management</strong>
+          EGP 1000 / month
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section-box">
+      <h3>How It Works</h3>
+      <p class="section-intro">
+        A simple process from idea to final launch.
+      </p>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <strong>Send Your Details</strong>
+          <p>Send your logo, store information, product images, and any examples you like.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <strong>First Draft</strong>
+          <p>The website layout and structure are prepared based on the selected package.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <strong>Review & Revisions</strong>
+          <p>You review the work and request edits within the included revision rounds.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <strong>Final Delivery</strong>
+          <p>Your website is finalized, tested, and prepared for publishing.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">5</div>
+          <strong>Launch & Support</strong>
+          <p>After launch, support is provided based on your selected package.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-box">
+      <h3>Frequently Asked Questions</h3>
+
+      <div class="faq-item">
+        <h4>Can I update products or content later?</h4>
+        <p>Yes. Content can be updated later, and admin management can also be added as an optional service.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do I need hosting and a domain name?</h4>
+        <p>Yes. A website needs both hosting and a domain name to be live online. These can be arranged as optional services.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can you make Arabic or bilingual websites?</h4>
+        <p>Yes. Arabic, English, or bilingual websites can be created depending on your business needs.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can I request extra pages later?</h4>
+        <p>Yes. Extra pages can be added later for EGP 500 per page.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How do I start?</h4>
+        <p>Send your business details, logo, and product images. A 40% deposit is required before work begins.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section-box contact-lines">
+      <h3>Get Started</h3>
+
+      <p>
+        Send your logo, store details, and product images to begin.
+        A 40% deposit is required before starting.
+      </p>
+
+      <p><strong>Phone:</strong> +20 0150 8222 682</p>
+      <p><strong>WhatsApp:</strong> +20 0150 8222 682</p>
+      <p><strong>Email:</strong> Karimshamel88@gmail.com</p>
+
+      <a href="https://wa.me/201508222682" class="cta" target="_blank">Contact Me on WhatsApp</a>
+    </section>
+
+  </div>
 </div>
-
-<ul>
-<li>Up to 10 pages</li>
-<li>Mobile responsive</li>
-<li>WhatsApp button</li>
-<li>Basic SEO</li>
-<li>Delivery: 7–10 days</li>
-</ul>
-
-</div>
-
-<div class="card featured">
-
-<h2>Business Website</h2>
-
-<div class="price">EGP 55,000</div>
-
-<div class="small-note">
-Most popular choice.
-</div>
-
-<ul>
-<li>Up to 25 pages</li>
-<li>Custom design</li>
-<li>Product catalog</li>
-<li>Maps integration</li>
-<li>Delivery: 14–18 days</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Premium Website</h2>
-
-<div class="price">EGP 80,000</div>
-
-<div class="small-note">
-For large businesses.
-</div>
-
-<ul>
-<li>Up to 40 pages</li>
-<li>High-end design</li>
-<li>Advanced structure</li>
-<li>SEO-ready</li>
-<li>Delivery: 21–30 days</li>
-</ul>
-
-</div>
-
-</section>
-
-<!-- EXTRAS -->
-
-<section class="extras">
-
-<h3>Optional Services</h3>
-
-<div class="extras-grid">
-
-<div class="extra-item">
-<strong>Domain Name</strong>
-EGP 1000–2500 / year
-</div>
-
-<div class="extra-item">
-<strong>Hosting</strong>
-EGP 300–500 / month
-</div>
-
-<div class="extra-item">
-<strong>Extra Page</strong>
-EGP 500 per page
-</div>
-
-<div class="extra-item">
-<strong>Admin Management</strong>
-EGP 1000 / month
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="footer-box">
-
-<h3>Get Started</h3>
-
-<p>
-Send your logo, store details, and product images to begin.
-40% deposit required before starting.
-</p>
-
-<p>
-
-Phone: +20 0150 8222 682  
-<br>
-WhatsApp: +20 0150 8222 682  
-<br>
-Email: Karimshamel88@gmail.com
-
-</p>
-
-<a href="#" class="cta">Contact Me</a>
-
-</section>
-
-</div>
-
-</div>
-
 </body>
 </html>
