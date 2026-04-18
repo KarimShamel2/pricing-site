@@ -1,284 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Website Pricing Template</title>
-  <style>
-    :root {
-      --bg: #f5f2ed;
-      --card: #ffffff;
-      --text: #1f1f1f;
-      --muted: #666;
-      --accent: #2f5d50;
-      --border: #ded8cf;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Website Packages</title>
 
-    * { box-sizing: border-box; }
+<style>
 
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
+:root {
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --muted: #666;
+  --accent: #2f5d50;
+  --border: #ded8cf;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
-    }
+/* BACKGROUND IMAGE */
 
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
 
-    .header h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 500;
-    }
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
-    .header p {
-      margin: 0 auto;
-      max-width: 700px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+  color: var(--text);
+  line-height: 1.5;
+}
 
-    .brand-box {
-      display: inline-block;
-      padding: 8px 18px;
-      margin-bottom: 18px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 0.95rem;
-      background: rgba(255,255,255,0.6);
-    }
+/* OVERLAY FOR READABILITY */
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      margin-bottom: 28px;
-    }
+.overlay {
+  background: rgba(245, 242, 237, 0.92);
+  min-height: 100vh;
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    }
+/* MAIN LAYOUT */
 
-    .featured {
-      border: 2px solid var(--accent);
-      transform: translateY(-4px);
-    }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px 64px;
+}
 
-    .card h2 {
-      margin: 0 0 8px;
-      font-size: 1.8rem;
-      font-weight: 500;
-    }
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    .price {
-      font-size: 2rem;
-      margin: 10px 0 8px;
-    }
+.brand-box {
+  display: inline-block;
+  padding: 8px 18px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  background: white;
+}
 
-    .small-note {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 18px;
-    }
+.header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+.header p {
+  margin: 0 auto;
+  max-width: 700px;
+  color: var(--muted);
+}
 
-    li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee8df;
-    }
+/* CARDS */
 
-    li:last-child {
-      border-bottom: none;
-    }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-bottom: 28px;
+}
 
-    .extras, .footer-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
 
-    .extras {
-      margin-bottom: 22px;
-    }
+.featured {
+  border: 2px solid var(--accent);
+  transform: translateY(-6px);
+}
 
-    .extras h3,
-    .footer-box h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      font-weight: 500;
-    }
+.card h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
 
-    .extras-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
+.price {
+  font-size: 2rem;
+  margin: 10px 0;
+}
 
-    .extra-item {
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #fcfbf8;
-    }
+.small-note {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
 
-    .extra-item strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1.05rem;
-    }
+ul {
+  list-style: none;
+  padding: 0;
+}
 
-    .contact {
-      margin-top: 12px;
-      color: var(--muted);
-    }
+li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
 
-    .cta {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
+/* EXTRAS */
 
-    .replace-note {
-      margin-top: 16px;
-      font-size: 0.92rem;
-      color: var(--muted);
-      font-style: italic;
-    }
+.extras, .footer-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
 
-    @media (max-width: 640px) {
-      .container { padding: 32px 16px 48px; }
-      .card, .extras, .footer-box { padding: 22px; }
-    }
-  </style>
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.extra-item {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fcfbf8;
+}
+
+.extra-item strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* CTA */
+
+.cta {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+}
+
+</style>
+
 </head>
+
 <body>
-  <div class="container">
-    <header class="header">
-      <div class="brand-box">Karim Shamel</div>
-      <h1>Website Packages</h1>
-      <p>
-        Professional website design for stores and businesses. Choose the package that fits your needs,
-        then add optional services as required.
-      </p>
-    </header>
 
-    <section class="pricing-grid">
-      <div class="card">
-        <h2>Starter Website</h2>
-        <div class="price">EGP 30,000</div>
-        <div class="small-note">Best for small to medium businesses that need a clean, professional website.</div>
-        <ul>
-          <li>Up to 10 pages</li>
-          <li>Mobile responsive design</li>
-          <li>Home, About, Products, Contact</li>
-          <li>WhatsApp contact button</li>
-          <li>Basic gallery or product section</li>
-          <li>Basic SEO setup</li>
-          <li>Delivery time: 7–10 days</li>
-        </ul>
-      </div>
+<div class="overlay">
 
-      <div class="card featured">
-        <h2>Business Website</h2>
-        <div class="price">EGP 55,000</div>
-        <div class="small-note">Best for brands that want a stronger and more complete online presence.</div>
-        <ul>
-          <li>Up to 25 pages</li>
-          <li>Premium custom design</li>
-          <li>Mobile responsive design</li>
-          <li>Product catalog / collection layout</li>
-          <li>WhatsApp integration</li>
-          <li>Contact form</li>
-          <li>Google Maps integration</li>
-          <li>Basic speed and SEO optimization</li>
-          <li>Delivery time: 14–18 days</li>
-        </ul>
-      </div>
+<div class="container">
 
-      <div class="card">
-        <h2>Premium Website</h2>
-        <div class="price">EGP 80,000</div>
-        <div class="small-note">Best for larger stores and brands that need a full custom website experience.</div>
-        <ul>
-          <li>Up to 40 pages</li>
-          <li>High-end custom design</li>
-          <li>Advanced product/category structure</li>
-          <li>Full mobile optimization</li>
-          <li>WhatsApp integration</li>
-          <li>Custom contact and inquiry forms</li>
-          <li>Google Maps integration</li>
-          <li>Enhanced speed optimization</li>
-          <li>Advanced SEO-ready structure</li>
-          <li>Delivery time: 21–30 days</li>
-        </ul>
-      </div>
-    </section>
+<header class="header">
 
-    <section class="extras">
-      <h3>Optional Services & Extra Costs</h3>
-      <div class="extras-grid">
-        <div class="extra-item">
-          <strong>Domain Name</strong>
-          EGP 1000–2500 / year
-        </div>
-        <div class="extra-item">
-          <strong>Hosting</strong>
-          EGP 300–500 / month
-        </div>
-        <div class="extra-item">
-          <strong>Extra Page</strong>
-          EGP 500 per page
-        </div>
-        <div class="extra-item">
-          <strong>Admin Management</strong>
-          EGP 1000 / month
-        </div>
-      </div>
-      <p class="replace-note">
-        Note: The package includes only the agreed number of products/pages. Any extra products added after that are charged separately.
-      </p>
-    </section>
+<div class="brand-box">Karim Shamel</div>
 
-    <section class="footer-box">
-      <h3>Get Started</h3>
-      <p>
-        To begin, send your logo, store name, product photos, prices, and contact information.
-        A deposit of 40% is required before starting the project.
-      </p>
-      <p class="contact">
-        Phone: +20 0150 8222 682 <br />
-        WhatsApp: +20 0150 8222 682  <br />
-        Email: Karimshamel88@gmail.com
-      </p>
-      <a href="#" class="cta">Contact Me</a>
-    </section>
-  </div>
+<h1>Website Packages</h1>
+
+<p>
+Professional website design for stores and businesses.
+Choose the package that fits your needs.
+</p>
+
+</header>
+
+<!-- PACKAGES -->
+
+<section class="pricing-grid">
+
+<div class="card">
+<h2>Starter Website</h2>
+
+<div class="price">EGP 30,000</div>
+
+<div class="small-note">
+Best for small businesses.
+</div>
+
+<ul>
+<li>Up to 10 pages</li>
+<li>Mobile responsive</li>
+<li>WhatsApp button</li>
+<li>Basic SEO</li>
+<li>Delivery: 7–10 days</li>
+</ul>
+
+</div>
+
+<div class="card featured">
+
+<h2>Business Website</h2>
+
+<div class="price">EGP 55,000</div>
+
+<div class="small-note">
+Most popular choice.
+</div>
+
+<ul>
+<li>Up to 25 pages</li>
+<li>Custom design</li>
+<li>Product catalog</li>
+<li>Maps integration</li>
+<li>Delivery: 14–18 days</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Premium Website</h2>
+
+<div class="price">EGP 80,000</div>
+
+<div class="small-note">
+For large businesses.
+</div>
+
+<ul>
+<li>Up to 40 pages</li>
+<li>High-end design</li>
+<li>Advanced structure</li>
+<li>SEO-ready</li>
+<li>Delivery: 21–30 days</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- EXTRAS -->
+
+<section class="extras">
+
+<h3>Optional Services</h3>
+
+<div class="extras-grid">
+
+<div class="extra-item">
+<strong>Domain Name</strong>
+EGP 1000–2500 / year
+</div>
+
+<div class="extra-item">
+<strong>Hosting</strong>
+EGP 300–500 / month
+</div>
+
+<div class="extra-item">
+<strong>Extra Page</strong>
+EGP 500 per page
+</div>
+
+<div class="extra-item">
+<strong>Admin Management</strong>
+EGP 1000 / month
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="footer-box">
+
+<h3>Get Started</h3>
+
+<p>
+Send your logo, store details, and product images to begin.
+40% deposit required before starting.
+</p>
+
+<p>
+
+Phone: +20 0150 8222 682  
+<br>
+WhatsApp: +20 0150 8222 682  
+<br>
+Email: Karimshamel88@gmail.com
+
+</p>
+
+<a href="#" class="cta">Contact Me</a>
+
+</section>
+
+</div>
+
+</div>
+
 </body>
 </html>
